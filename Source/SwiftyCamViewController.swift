@@ -921,6 +921,7 @@ extension SwiftyCamViewController : SwiftyCamButtonDelegate {
             startVideoRecording()
         } else {
             print("Video record not enabled")
+            takePhoto()
         }
 	}
 
