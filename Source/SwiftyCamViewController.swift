@@ -763,10 +763,10 @@ open class SwiftyCamViewController: UIViewController {
 		// prompt User with UIAlertView
 
 		DispatchQueue.main.async(execute: { [unowned self] in
-			let message = NSLocalizedString("AVCam doesn't have permission to use the camera, please change privacy settings", comment: "Alert message when the user has denied access to the camera")
+			let message = NSLocalizedString("カメラの利用許可がありません。設定を変更してください。", comment: "カメラの使用許可がないときにこのメッセージは表示されます")
 			let alertController = UIAlertController(title: "AVCam", message: message, preferredStyle: .alert)
 			alertController.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Alert OK button"), style: .cancel, handler: nil))
-			alertController.addAction(UIAlertAction(title: NSLocalizedString("Settings", comment: "Alert button to open Settings"), style: .default, handler: { action in
+			alertController.addAction(UIAlertAction(title: NSLocalizedString("設定", comment: "Alert button to open Settings"), style: .default, handler: { action in
 				if #available(iOS 10.0, *) {
 					UIApplication.shared.openURL(URL(string: UIApplicationOpenSettingsURLString)!)
 				} else {
