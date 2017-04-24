@@ -527,7 +527,9 @@ open class SwiftyCamViewController: UIViewController {
 		session.beginConfiguration()
 		configureVideoPreset()
 		addVideoInput()
-		addAudioInput()
+        if allowVideoCapture {
+            addAudioInput()
+        }
 		configureVideoOutput()
 		configurePhotoOutput()
 
@@ -540,7 +542,9 @@ open class SwiftyCamViewController: UIViewController {
 		session.beginConfiguration()
 		configureVideoPreset()
 		addVideoInput()
-		addAudioInput()
+        if allowVideoCapture {
+            addAudioInput()
+        }
 		session.commitConfiguration()
 	}
 
