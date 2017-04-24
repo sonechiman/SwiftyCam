@@ -135,6 +135,14 @@ open class SwiftyCamViewController: UIViewController {
 	/// Set default launch camera
 
 	public var defaultCamera                   = CameraSelection.rear
+    
+    /// Determine whether video recording is allowed
+    
+    public var allowVideoCapture                = true
+    
+    /// Determine whether photo capture is allowed
+    
+    public var allowPhotoCapture                = true
 
 	/// Sets wether the taken photo or video should be oriented according to the device orientation
 
@@ -900,13 +908,21 @@ extension SwiftyCamViewController : SwiftyCamButtonDelegate {
 	/// Set UITapGesture to take photo
 
 	public func buttonWasTapped() {
-		takePhoto()
+        if self.allowPhotoCapture {
+            takePhoto()
+        } else {
+            print("Photo capture not enabled")
+        }
 	}
 
 	/// Set UILongPressGesture start to begin video
 
 	public func buttonDidBeginLongPress() {
-		startVideoRecording()
+        if self.allowVideoCapture {
+            startVideoRecording()
+        } else {
+            print("Video record not enabled")
+        }
 	}
 
 	/// Set UILongPressGesture begin to begin end video
